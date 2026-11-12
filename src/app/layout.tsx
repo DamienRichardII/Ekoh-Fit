@@ -11,11 +11,14 @@ import { Footer } from "@/components/Footer";
 import { MobileNav } from "@/components/MobileNav";
 import { site } from "@/data/site";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ekoh-fit.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: { default: site.title, template: "%s | EKOHFIT" },
   description: site.description,
-  openGraph: { title: site.title, description: site.description, locale: "fr_FR", type: "website", siteName: "EKOHFIT" },
-  twitter: { card: "summary", title: site.title, description: site.description },
+  openGraph: { title: site.title, description: site.description, locale: "fr_FR", type: "website", url: "/", siteName: "EKOHFIT" },
+  twitter: { card: "summary_large_image", title: site.title, description: site.description },
 };
 export const viewport: Viewport = { themeColor: "#0F1B28", width: "device-width", initialScale: 1 };
 
