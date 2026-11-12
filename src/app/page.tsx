@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarCheck, Dumbbell, Users, Activity, Trophy, ClipboardCheck, Star } from "lucide-react";
+import { ArrowRight, CalendarCheck, Dumbbell, Users, Activity, Trophy, ClipboardCheck, Quote } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Media } from "@/components/Media";
 import { Reveal } from "@/components/Reveal";
@@ -9,6 +9,9 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { domains } from "@/data/site";
 import { getService } from "@/data/services";
 import { heroPhoto, aboutPhoto } from "@/data/media";
+import { profile } from "@/data/profile";
+import { reviews } from "@/data/reviews";
+import { site } from "@/data/site";
 
 const icons = { Dumbbell, Users, Activity, Trophy, ClipboardCheck };
 const featured = ["ekohfit-up", "harmony", "offre-particulier", "handfit"].map((s) => getService(s)!);
@@ -73,7 +76,12 @@ export default function Home() {
         <div className="container-x grid items-center gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
           <Reveal><div className="zoom-frame overflow-hidden rounded-card"><Media src={aboutPhoto?.src ?? null} pos={aboutPhoto?.pos} alt="La coach EKOHFIT debout dans le gymnase" label="Portrait de la coach à ajouter" sizes="(min-width:1024px) 40vw, 100vw" className="aspect-[4/5] w-full" /></div></Reveal>
           <Reveal delay={120}>
-            <SectionHeading tone="dark" eyebrow="À propos" title="La coach EKOHFIT" lead="Un accompagnement exigeant et humain, fondé sur trois valeurs : discipline, progression, confiance." />
+            <SectionHeading tone="dark" eyebrow="À propos" title={site.coachName ?? "La coach EKOHFIT"} lead={profile.bio[0]} />
+            <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-gold/30 pt-6">
+              {profile.stats.map((st) => (
+                <div key={st.label}><dt className="order-2 text-xs font-bold uppercase tracking-wide text-offwhite/80">{st.label}</dt><dd className="font-display text-5xl font-bold text-gold">{st.value}</dd></div>
+              ))}
+            </dl>
             <Button href="/a-propos/" className="mt-7">En savoir plus <ArrowRight aria-hidden className="h-4 w-4" /></Button>
           </Reveal>
         </div>
@@ -86,11 +94,15 @@ export default function Home() {
             <SectionHeading title="Ils me font confiance" eyebrow="Avis" />
             <Link href="/avis/" className="link-u inline-flex min-h-11 items-center gap-2 font-bold">Voir la page avis <ArrowRight aria-hidden className="h-4 w-4" /></Link>
           </Reveal>
-          <Reveal delay={100} className="mt-8 flex flex-col items-center gap-3 rounded-card border border-dashed border-navy/30 bg-white p-10 text-center">
-            <Star aria-hidden className="h-9 w-9 text-gold-dark" />
-            <p className="max-w-md font-semibold">Les premiers avis vérifiés apparaîtront ici.</p>
-            <p className="max-w-md text-sm text-navy/70">Aucun témoignage n’est affiché tant qu’il n’a pas été fourni et validé.</p>
-          </Reveal>
+          <ul className="mt-8 grid gap-5 md:grid-cols-3">
+            {reviews.map((r, i) => (
+              <li key={r.author}><Reveal delay={i * 90} className="card-lift flex h-full flex-col rounded-card border border-navy/10 bg-white p-6 shadow-soft">
+                <Quote aria-hidden className="h-7 w-7 text-gold-dark" />
+                <blockquote className="mt-3 flex-1 text-sm leading-relaxed">{r.text}</blockquote>
+                <p className="mt-5 font-bold">{r.author}</p><p className="text-sm text-navy/70">{r.role}</p>
+              </Reveal></li>
+            ))}
+          </ul>
         </div>
       </section>
 

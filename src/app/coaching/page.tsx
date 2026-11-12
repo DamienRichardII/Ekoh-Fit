@@ -16,8 +16,8 @@ const steps = [
 ];
 const blocks = [
   { Icon: User, t: "Accompagnement individuel", d: "Un suivi personnalisé, au rythme de la personne." },
-  { Icon: Users, t: "Accompagnement collectif", d: "Séances pour groupes, clubs et équipes — contenu à confirmer." },
-  { Icon: Activity, t: "Préparation physique", d: "Préparation adaptée à votre pratique, notamment le handball — contenu à confirmer." },
+  { Icon: Users, t: "Accompagnement collectif", d: "Encadrement sportif pour clubs, groupes et équipes, sur mesure." },
+  { Icon: Activity, t: "Préparation physique", d: "Séances spécifiques de handball et stages de perfectionnement." },
 ];
 
 export default function Page() {
