@@ -118,12 +118,15 @@ export default function Home() {
       {/* CTA FINAL */}
       <section className="section-y on-light">
         <Reveal className="container-x">
-          <div className="rounded-card bg-gold p-8 text-navy sm:p-12">
-            <h2 className="text-4xl sm:text-6xl">Prêt à passer à l’action ?</h2>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button href="/reservation/" variant="navy">Réserver une séance</Button>
-              <Button href="/contact/" variant="outline-dark">Nous contacter</Button>
+          <div className="flex items-center justify-between gap-8 rounded-card bg-gold p-8 text-navy sm:p-12">
+            <div>
+              <h2 className="text-4xl sm:text-6xl">Prêt à passer à l’action ?</h2>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Button href="/reservation/" variant="navy">Réserver une séance</Button>
+                <Button href="/contact/" variant="outline-dark">Nous contacter</Button>
+              </div>
             </div>
+            <Image src="/logo-navy.png" alt="" width={900} height={854} aria-hidden className="hidden h-auto w-56 shrink-0 md:block lg:w-72" />
           </div>
         </Reveal>
       </section>
