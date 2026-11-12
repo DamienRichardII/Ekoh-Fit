@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /mon-compte/
+Disallow: /reservation/
+Disallow: /confirmation/
