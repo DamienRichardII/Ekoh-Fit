@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock, ArrowRight } from "lucide-react";
+import { Clock, Users, ArrowRight } from "lucide-react";
 import type { Service } from "@/data/services";
 import { Media } from "./Media";
 import { Button } from "./Button";
@@ -19,6 +19,7 @@ export function ServiceCard({ service }: { service: Service }) {
         {!s.verified && <p className="text-xs font-semibold uppercase tracking-wide text-navy/70">Contenu à confirmer</p>}
         <div className="mt-auto flex items-end justify-between gap-3 pt-2">
           <div>
+            {s.capacity && <p className="mb-1 flex items-center gap-1.5 text-xs font-medium text-navy/70"><Users aria-hidden className="h-3.5 w-3.5" />{s.capacity}</p>}
             {s.duration && <p className="mb-1 flex items-center gap-1.5 text-xs font-medium text-navy/70"><Clock aria-hidden className="h-3.5 w-3.5" />{s.duration}</p>}
             <p className="text-lg font-extrabold leading-tight">{s.price ?? "Sur devis"}</p>
             {s.priceNote && <p className="text-xs text-navy/70">{s.priceNote}</p>}

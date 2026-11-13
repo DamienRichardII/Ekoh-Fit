@@ -14,6 +14,8 @@ export interface Service {
   priceNote?: string;
   quote: boolean;
   audience: string;
+  /** Jauge de participants (ex. « Limité à 20 personnes »), `undefined` = non précisée */
+  capacity?: string;
   steps: string[];
   practical: string[];
   /** true = issu de la grille tarifaire fournie ; false = suggéré par la maquette, à confirmer */
@@ -43,7 +45,7 @@ export const services: Service[] = [
     quote: false,
     audience: "Toute personne qui souhaite découvrir le HandFit.",
     steps: ["1 séance découverte", "Présentation du HandFit et de ses bienfaits"],
-    practical: ["Durée et lieu : à confirmer avec la coach"],
+    practical: ["Durée et lieu : à confirmer avec la coach", "Le devis varie selon le nombre de participants"],
     verified: true,
     media: photos.p22,
   },
@@ -52,14 +54,15 @@ export const services: Service[] = [
     title: "EKOHFIT Harmony",
     short: "Un accompagnement sur 8 mois : 7 séances + 1 offerte, soit 8 séances.",
     description:
-      "Un parcours suivi sur 8 mois pour installer de nouvelles habitudes et progresser durablement. Adapté aux projets sport, bien-être, santé et cohésion.",
-    categories: ["individuel"],
+      "Un parcours suivi sur 8 mois pour installer de nouvelles habitudes et progresser durablement. Pensé pour les entreprises : synergie, cohésion d'équipe et bien-être au travail.",
+    categories: ["collectif", "ecoles"],
     duration: "8 mois",
     price: "À partir de 3 990 €",
     quote: false,
-    audience: "Personnes souhaitant un accompagnement régulier sur la durée.",
+    audience: "Entreprises : cohésion d'équipe, synergie et bien-être au travail.",
+    capacity: "Limité à 20 personnes",
     steps: ["Accompagnement sur 8 mois", "7 séances + 1 séance offerte (8 au total)", "1 atelier de réseautage"],
-    practical: ["Tarif « à partir de » : montant final à confirmer avec la coach"],
+    practical: ["Tarif « à partir de » : le devis varie selon le nombre de participants"],
     verified: true,
     media: photos.p38,
   },
@@ -68,19 +71,20 @@ export const services: Service[] = [
     title: "EKOHFIT Vitality",
     short: "Un accompagnement sur 10 mois : 9 séances + 1 offerte, avec carnet de suivi.",
     description:
-      "Le parcours le plus complet : 10 mois d'accompagnement, un carnet de suivi et des ateliers de réseautage. Adapté aux projets bien-être, santé et inclusion sociale.",
-    categories: ["individuel"],
+      "Le parcours le plus complet : 10 mois d'accompagnement, un carnet de suivi et des ateliers de réseautage. Pensé pour les structures médico-sociales : EHPAD, maisons de retraite, hôpitaux et maisons de santé.",
+    categories: ["collectif", "ecoles"],
     duration: "10 mois",
     price: "À partir de 4 990 €",
     quote: false,
-    audience: "Personnes souhaitant un suivi approfondi et un accompagnement long.",
+    audience: "Structures médico-sociales : EHPAD, maisons de retraite, hôpitaux, maisons de santé.",
+    capacity: "Limité à 10 personnes",
     steps: [
       "Accompagnement sur 10 mois",
       "1 carnet de suivi et d'accompagnement",
       "9 séances + 1 séance offerte (10 au total)",
       "2 ateliers de réseautage, dont un format hybride",
     ],
-    practical: ["Tarif « à partir de » : montant final à confirmer avec la coach"],
+    practical: ["Tarif « à partir de » : le devis varie selon le nombre de participants"],
     verified: true,
     media: photos.p47,
   },
@@ -108,17 +112,17 @@ export const services: Service[] = [
   },
   {
     slug: "handfit",
-    title: "EKOHFIT HandFit",
-    short: "HandMixte, HandFlow, HandPower : 20 € la séance ou 50 € les 3 séances.",
+    title: "HandFit",
+    short: "HandFlow (100 % femmes), HandPower (100 % hommes), HandMixte (100 % mixte) : 20 € la séance ou 50 € les 3 séances.",
     description:
-      "Trois formats de HandFit ouverts au public — HandMixte, HandFlow et HandPower — au même tarif.",
+      "Trois formats de HandFit ouverts au public, au même tarif : HandFlow, une séance 100 % femmes ; HandPower, une séance 100 % hommes ; HandMixte, une séance 100 % mixte. Choisissez le format qui vous correspond pour vos 3 séances.",
     categories: ["collectif", "handball"],
     duration: null,
     price: "20 € la séance",
     priceNote: "ou 50 € les 3 séances",
     quote: false,
     audience: "Tout public.",
-    steps: ["Trois formats : HandMixte, HandFlow, HandPower", "Même tarif pour les trois formats"],
+    steps: ["HandFlow : séance 100 % femmes", "HandPower : séance 100 % hommes", "HandMixte : séance 100 % mixte", "Même tarif pour les trois formats"],
     practical: ["Durée, horaires et lieux : à confirmer"],
     verified: true,
     media: photos.p37,

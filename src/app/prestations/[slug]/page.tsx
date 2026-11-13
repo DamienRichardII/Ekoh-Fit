@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <SectionHeading as="h1" title={s.title} lead={s.description} />
             {!s.verified && <p className="mt-4 flex gap-2 rounded-lg bg-gold/25 p-3 text-sm font-medium"><Info aria-hidden className="mt-0.5 h-4 w-4 shrink-0" />Contenu suggéré par la maquette, à confirmer avec la coach.</p>}
             <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              <div><h2 className="mb-2 text-2xl">Public concerné</h2><p className="text-navy/80">{s.audience}</p></div>
+              <div><h2 className="mb-2 text-2xl">Public concerné</h2><p className="text-navy/80">{s.audience}{s.capacity ? ` ${s.capacity}.` : ""}</p></div>
               <div><h2 className="mb-2 text-2xl">Tarif</h2><p className="text-xl font-extrabold">{s.price ?? "Sur devis"}</p>{s.priceNote && <p className="text-sm text-navy/75">{s.priceNote}</p>}</div>
             </div>
             <h2 className="mb-3 mt-8 text-2xl">Déroulement</h2>

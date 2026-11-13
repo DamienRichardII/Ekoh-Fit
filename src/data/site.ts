@@ -19,7 +19,8 @@ export const site = {
     // Lien fourni tel quel : redirection Instagram (l.instagram.com) vers la chaîne YouTube. À remplacer par l'URL du profil Instagram.
     { key: "instagram", label: "Instagram", href: "https://l.instagram.com/?u=https%3A%2F%2Fyoutube.com%2F%40ekohfit%3Fsi%3Dm_lB8okadyZ7xiBO&e=AUCVyuZSW0rxcUd6VlyuU9znG12vWURkf5CEFtqzmc0abWKKaG9gnCT63lSWqMWsEmTQyEd3JP_5OgxvOnB0yavikwBhGe6vKghOZHMIVJDJcFcj41nvPRqZ7_EI" },
     { key: "youtube", label: "YouTube", href: "https://www.youtube.com/@ekohfit" },
-  ] as { key: "linkedin" | "instagram" | "youtube"; label: string; href: string }[],
+    { key: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@ekohfit?_r=1&_t=ZG-9BG9FOaMcVs" },
+  ] as { key: "linkedin" | "instagram" | "youtube" | "tiktok"; label: string; href: string }[],
   coachName: "Karichma EKOH" as string | null,
 };
 
@@ -41,6 +42,6 @@ export const domains = [
   { icon: "Dumbbell", title: "Coach sportif", text: "Accompagnement personnalisé" },
   { icon: "Users", title: "Interventions", text: "Clubs · Structures · Écoles" },
   { icon: "Activity", title: "Préparation physique", text: "Individuelle & collective" },
-  { icon: "Trophy", title: "Handball", text: "HandFit : Mixte · Flow · Power" },
+  { icon: "Trophy", title: "Handball", text: "HandFit : Flow · Power · Mixte" },
   { icon: "ClipboardCheck", title: "Suivi personnalisé", text: "Bilan, objectifs, progression" },
 ] as const;
